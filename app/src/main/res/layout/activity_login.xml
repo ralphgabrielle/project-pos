@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary">
+
+
+    <EditText
+        android:layout_marginTop="@dimen/margin_normal"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:id="@+id/etUsername"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/etPassword"
+        android:hint="Enter username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.5"
+        android:background="@drawable/theme_field"/>
+
+    <EditText
+        android:layout_marginTop="@dimen/margin_normal"
+        app:layout_constraintBottom_toTopOf="@id/bLogin"
+        android:id="@+id/etPassword"
+        app:layout_constraintTop_toBottomOf="@+id/etUsername"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="Enter password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.5"
+        android:background="@drawable/theme_field"/>
+
+
+    <Button
+        android:background="@drawable/ripple_primary"
+        android:layout_marginTop="@dimen/margin_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Login"
+        android:textColor="@color/white"
+        app:layout_constraintWidth_percent="0.5"
+        android:id="@+id/bLogin"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
