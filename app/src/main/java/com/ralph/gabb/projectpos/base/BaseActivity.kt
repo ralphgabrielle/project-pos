@@ -1,5 +1,6 @@
-package com.ralph.gabb.projectpos
+package com.ralph.gabb.projectpos.base
 
+import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 
@@ -13,5 +14,14 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract val layoutId: Int?
 
     abstract fun viewCreated()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        layoutId?.let {
+            setContentView(it)
+            viewCreated()
+        }
+    }
 
 }

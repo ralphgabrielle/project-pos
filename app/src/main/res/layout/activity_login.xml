@@ -1,51 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary">
+    android:background="@color/white"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
 
-
-    <EditText
-        android:layout_marginTop="@dimen/margin_normal"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:id="@+id/etUsername"
+    <TextView
+        android:id="@+id/tvWelcomeBack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Welcome Back"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_size_big_v2"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/etPassword"
-        android:hint="Enter username"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent="0.5"
-        android:background="@drawable/theme_field"/>
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintWidth_percent="0.5" />
 
     <EditText
-        android:layout_marginTop="@dimen/margin_normal"
-        app:layout_constraintBottom_toTopOf="@id/bLogin"
-        android:id="@+id/etPassword"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Enter password"
+        android:id="@+id/etUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent="0.5"
-        android:background="@drawable/theme_field"/>
+        android:layout_marginTop="@dimen/margin_big_v2"
+        android:background="@drawable/theme_field"
+        android:hint="Username"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toTopOf="@id/etPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcomeBack"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:background="@drawable/theme_field"
+        android:hint="Password"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toTopOf="@id/bLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUsername"
+        app:layout_constraintWidth_percent="0.5" />
 
 
     <Button
-        android:background="@drawable/ripple_primary"
-        android:layout_marginTop="@dimen/margin_normal"
+        android:id="@+id/bLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_big"
+        android:background="@drawable/ripple_rounded_primary"
+        android:elevation="10dp"
+        android:text="Login"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Login"
-        android:textColor="@color/white"
-        app:layout_constraintWidth_percent="0.5"
-        android:id="@+id/bLogin"
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintWidth_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
