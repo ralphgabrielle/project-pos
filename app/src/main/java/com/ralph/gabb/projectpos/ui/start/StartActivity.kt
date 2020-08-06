@@ -3,7 +3,7 @@ package com.ralph.gabb.projectpos.ui.start
 import com.ralph.gabb.projectpos.R
 import com.ralph.gabb.projectpos.base.BaseActivity
 import com.ralph.gabb.projectpos.ui.MainActivity
-import com.ralph.gabb.projectpos.ui.setup.SetUpActivity
+import com.ralph.gabb.projectpos.ui.login.LoginActivity
 import com.ralph.gabb.projectpos.utils.PreferenceManager
 import kotlinx.coroutines.*
 import org.jetbrains.anko.clearTask
@@ -30,20 +30,22 @@ class StartActivity: BaseActivity() {
             delay(3000)
 
             withContext(Dispatchers.Main) {
-                val hasAccount = preferenceManager.get("has_account", false) as Boolean
+                val hasAccount = preferenceManager.get("has_user", false) as Boolean
 
                 if (hasAccount) {
                     displayMain()
                 } else {
                     displayLogin()
                 }
+
+//                displayLogin()
             }
         }
     }
 
     private fun displayLogin() {
         startActivity(
-            intentFor<SetUpActivity>()
+            intentFor<LoginActivity>()
                 .clearTask()
                 .newTask()
         )

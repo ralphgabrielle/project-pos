@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_big"
         android:background="@drawable/ripple_rounded_primary"
-        android:enabled="false"
         android:text="Get Started"
         android:textColor="@color/white"
         android:visibility="invisible"

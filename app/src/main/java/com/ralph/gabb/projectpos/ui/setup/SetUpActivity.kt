@@ -1,6 +1,7 @@
 package com.ralph.gabb.projectpos.ui.setup
 
 import android.view.View
+import com.google.gson.Gson
 import com.ralph.gabb.projectpos.R
 import com.ralph.gabb.projectpos.base.BaseActivity
 import com.ralph.gabb.projectpos.data.body.TokenBody
@@ -58,6 +59,7 @@ class SetUpActivity: BaseActivity() {
         val fetchCategories = viewModel.fetchCategories(TokenBody(token))
 
         SuspendNetworkCall.makeCall(this@SetUpActivity, fetchCategories) {
+            preferenceManager.set("categories" to Gson().toJson(it.objectData))
             fetchProducts()
         }
     }
@@ -67,8 +69,8 @@ class SetUpActivity: BaseActivity() {
         val fetchProducts = viewModel.fetchProducts(TokenBody(token))
 
         SuspendNetworkCall.makeCall(this@SetUpActivity, fetchProducts) {
-
             setupComplete()
+            preferenceManager.set("products" to Gson().toJson(it.objectData))
         }
     }
 

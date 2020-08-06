@@ -14,12 +14,16 @@ data class Product (
     @SerializedName(value = "product_name")
     var productName: String,
 
-    var image: String?,
-
     @SerializedName(value = "store_id")
     var storeId: String,
 
     @SerializedName(value = "branch_id")
-    var branchId: String
+    var branchId: String,
+
+    @SerializedName(value = "price")
+    var productPrice: String?,
+
+    @SerializedName(value = "image")
+    var imageUrl: String?
 
 )

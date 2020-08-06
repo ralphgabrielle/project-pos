@@ -11,12 +11,15 @@ data class Category (
 
     var id: String,
 
+    @SerializedName(value = "category_name")
     var name: String,
 
     @SerializedName(value = "store_id")
     var storeId: String,
 
     @SerializedName(value = "branch_id")
-    var branchId: String
+    var branchId: String,
+
+    var itemImageUrl: String?
 
 )
