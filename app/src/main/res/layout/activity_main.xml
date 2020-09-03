@@ -15,7 +15,6 @@
         app:layout_constraintWidth_percent="0.75"
         tools:layout="@layout/fragment_shop" />
 
-
     <fragment
         android:id="@+id/orderListFragment"
         android:name="com.ralph.gabb.projectpos.ui.main.OrderListFragment"

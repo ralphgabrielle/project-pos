@@ -18,6 +18,8 @@ import kotlinx.android.synthetic.main.row_category.view.*
 
 class CategoryAdapter(private val context: Context, private val categories: List<Category>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
+    private var currentSelected = -1
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.row_category, parent, false)
         return CategoryViewHolder(view)
@@ -32,6 +34,12 @@ class CategoryAdapter(private val context: Context, private val categories: List
 
         holder.displayItemName(category.name)
         holder.displayItemImageUrl(category.itemImageUrl, category.name)
+        holder.checkIfSelected(position, currentSelected)
+
+        holder.selectCategory {
+            currentSelected = position
+            notifyDataSetChanged()
+        }
     }
 
     class CategoryViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
@@ -50,6 +58,22 @@ class CategoryAdapter(private val context: Context, private val categories: List
 
                 itemView.ivCategoryImage.setImageDrawable(drawable)
                 return
+            }
+        }
+
+        fun selectCategory(onSelected: () -> Unit) {
+            itemView.cardCategory.setOnClickListener {
+                onSelected()
+            }
+        }
+
+        fun checkIfSelected(position: Int, currentSelected: Int) {
+            if (position == currentSelected) {
+                // selected
+                itemView.cardCategory.setCardBackgroundColor(Color.CYAN)
+            } else {
+                // not selected
+                itemView.cardCategory.setCardBackgroundColor(Color.WHITE)
             }
         }
     }
