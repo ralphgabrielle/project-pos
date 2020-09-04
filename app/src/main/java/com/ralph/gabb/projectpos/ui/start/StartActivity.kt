@@ -2,7 +2,7 @@ package com.ralph.gabb.projectpos.ui.start
 
 import com.ralph.gabb.projectpos.R
 import com.ralph.gabb.projectpos.base.BaseActivity
-import com.ralph.gabb.projectpos.ui.MainActivity
+import com.ralph.gabb.projectpos.ui.main.MainActivity
 import com.ralph.gabb.projectpos.ui.login.LoginActivity
 import com.ralph.gabb.projectpos.utils.PreferenceManager
 import kotlinx.coroutines.*

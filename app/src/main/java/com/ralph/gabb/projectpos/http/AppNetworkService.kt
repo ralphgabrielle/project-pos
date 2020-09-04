@@ -22,7 +22,7 @@ interface AppNetworkService {
     @POST("fd99e8f3-8291-458c-adcc-7ea668ba88a6")
     suspend fun fetchCategories(@Body tokenBody: TokenBody): Wrapper<CategoryResponse>
 
-    @POST("2aba84d6-ec21-49eb-8a73-9c7365699ef8")
+    @POST("0a685b96-da94-4738-a187-76fa0a437de3")
     suspend fun fetchProducts(@Body tokenBody: TokenBody): Wrapper<ProductResponse>
 
     companion object {

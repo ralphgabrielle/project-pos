@@ -24,6 +24,9 @@ data class Product (
     var productPrice: String?,
 
     @SerializedName(value = "image")
-    var imageUrl: String?
+    var imageUrl: String?,
+
+    @SerializedName(value = "category_id")
+    var categoryId: Int
 
 )

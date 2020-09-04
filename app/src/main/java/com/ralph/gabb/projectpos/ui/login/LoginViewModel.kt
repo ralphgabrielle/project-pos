@@ -26,8 +26,7 @@ class LoginViewModel(private val userRepository: UserRepository): ViewModel() {
 
         validationLiveData.postValue(
             LoginBody(
-                username,
-                password
+                username, password
             )
         )
     }

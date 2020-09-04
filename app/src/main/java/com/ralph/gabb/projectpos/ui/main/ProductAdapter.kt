@@ -44,8 +44,8 @@ class ProductAdapter(private val context: Context,
                 onProductSelected(product)
             }
 
-            currentSelected = position
-            notifyDataSetChanged()
+//            currentSelected = position
+//            notifyDataSetChanged()
         }
     }
 
@@ -79,13 +79,13 @@ class ProductAdapter(private val context: Context,
         }
 
         fun checkIfSelected(position: Int, currentSelected: Int) {
-            if (position == currentSelected) {
-                // selected
-                itemView.cardProduct.setCardBackgroundColor(Color.CYAN)
-            } else {
-                // not selected
-                itemView.cardProduct.setCardBackgroundColor(Color.WHITE)
-            }
+//            if (position == currentSelected) {
+//                // selected
+//                itemView.cardProduct.setCardBackgroundColor(Color.CYAN)
+//            } else {
+//                // not selected
+//                itemView.cardProduct.setCardBackgroundColor(Color.WHITE)
+//            }
         }
     }
 }

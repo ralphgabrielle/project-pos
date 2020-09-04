@@ -1,4 +1,4 @@
-package com.ralph.gabb.projectpos.ui
+package com.ralph.gabb.projectpos.ui.main
 
 import com.ralph.gabb.projectpos.R
 import com.ralph.gabb.projectpos.base.BaseActivity

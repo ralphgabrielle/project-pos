@@ -24,3 +24,7 @@ fun emptyString() = ""
 fun plantLog(ex: Exception) {
     Timber.d(ex.message ?: "Null message logged")
 }
+
+fun plantLog(str: String) {
+    Timber.d(str ?: "Null message logged")
+}

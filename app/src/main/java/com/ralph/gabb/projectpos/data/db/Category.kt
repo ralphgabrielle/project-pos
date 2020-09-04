@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Category (
 
-    var id: String,
+    var id: Int,
 
     @SerializedName(value = "category_name")
     var name: String,

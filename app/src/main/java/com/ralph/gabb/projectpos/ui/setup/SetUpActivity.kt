@@ -6,7 +6,7 @@ import com.ralph.gabb.projectpos.R
 import com.ralph.gabb.projectpos.base.BaseActivity
 import com.ralph.gabb.projectpos.data.body.TokenBody
 import com.ralph.gabb.projectpos.extra.emptyString
-import com.ralph.gabb.projectpos.ui.MainActivity
+import com.ralph.gabb.projectpos.ui.main.MainActivity
 import com.ralph.gabb.projectpos.utils.PreferenceManager
 import com.ralph.gabb.projectpos.utils.SuspendNetworkCall
 import kotlinx.android.synthetic.main.activity_setup.*
