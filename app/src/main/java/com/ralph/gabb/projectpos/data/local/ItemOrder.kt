@@ -1,6 +1,7 @@
 package com.ralph.gabb.projectpos.data.local
 
 import com.ralph.gabb.projectpos.data.db.Product
+import com.ralph.gabb.projectpos.data.db.ProductVariant
 
 
 /*
@@ -11,6 +12,10 @@ data class ItemOrder(
 
     var product: Product,
 
-    var qty: Int
+    var qty: Int,
+
+    var total: Double = 0.0,
+
+    var variant: ProductVariant
 
 )

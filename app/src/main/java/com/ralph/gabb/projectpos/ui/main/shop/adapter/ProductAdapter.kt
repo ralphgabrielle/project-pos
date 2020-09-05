@@ -1,4 +1,4 @@
-package com.ralph.gabb.projectpos.ui.main
+package com.ralph.gabb.projectpos.ui.main.shop.adapter
 
 import android.content.Context
 import android.graphics.Color
@@ -24,7 +24,9 @@ class ProductAdapter(private val context: Context,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.row_product, parent, false)
-        return ProductViewHolder(view)
+        return ProductViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int {

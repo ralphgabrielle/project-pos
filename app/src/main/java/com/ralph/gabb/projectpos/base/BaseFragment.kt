@@ -4,15 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment: Fragment() {
-
-    @get:LayoutRes
-    protected abstract val layoutId: Int?
-
-    protected abstract fun viewCreated()
+abstract class BaseFragment: Fragment(), ConstructView {
 
     companion object {
         fun <T : BaseFragment?> newInstance(clazz: Class<T>, vararg params: Pair<String, Any?>): T? {

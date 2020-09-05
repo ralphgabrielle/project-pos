@@ -1,4 +1,4 @@
-package com.ralph.gabb.projectpos.ui.main
+package com.ralph.gabb.projectpos.ui.main.shop.adapter
 
 import android.content.Context
 import android.graphics.Color
@@ -24,7 +24,9 @@ class CategoryAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.row_category, parent, false)
-        return CategoryViewHolder(view)
+        return CategoryViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int {

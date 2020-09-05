@@ -27,6 +27,8 @@ data class Product (
     var imageUrl: String?,
 
     @SerializedName(value = "category_id")
-    var categoryId: Int
+    var categoryId: Int,
+
+    var variants : ArrayList<ProductVariant> = ArrayList()
 
 )
