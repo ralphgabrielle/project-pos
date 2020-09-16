@@ -19,6 +19,7 @@ class ShopViewModel: ViewModel() {
     var isListUpdated =  MutableLiveData<Boolean>()
     var isItemOrderListUpdated = MutableLiveData<Boolean>()
 
+    var totalAmount = MutableLiveData<Double>()
     val orderList =  OrderList()
 
     fun setProducts(products: List<Product>) {
@@ -50,7 +51,18 @@ class ShopViewModel: ViewModel() {
     fun addOrder(itemOrder: ItemOrder) {
         orderList.addOrder(itemOrder)
 
+        computeTotalAmount()
         notifyItemOrderChange()
+    }
+
+    private fun computeTotalAmount() {
+        var total = 0.0
+
+        for (itemOrder in orderList.orders) {
+            total = (total + itemOrder.total)
+        }
+
+        totalAmount.value = total
     }
 
 }

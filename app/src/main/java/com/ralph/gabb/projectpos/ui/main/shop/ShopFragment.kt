@@ -1,8 +1,10 @@
 package com.ralph.gabb.projectpos.ui.main.shop
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.ralph.gabb.projectpos.R
 import com.ralph.gabb.projectpos.base.BaseFragment
@@ -12,6 +14,7 @@ import com.ralph.gabb.projectpos.data.local.ItemOrder
 import com.ralph.gabb.projectpos.data.response.CategoryResponse
 import com.ralph.gabb.projectpos.data.response.ProductResponse
 import com.ralph.gabb.projectpos.extra.emptyString
+import com.ralph.gabb.projectpos.extra.formatCurrency
 import com.ralph.gabb.projectpos.extra.plantLog
 import com.ralph.gabb.projectpos.ui.main.shop.adapter.CategoryAdapter
 import com.ralph.gabb.projectpos.ui.main.shop.adapter.ItemOrderListAdapter
@@ -54,6 +57,17 @@ class ShopFragment: BaseFragment() {
 
             rvItemOrderList.adapter?.notifyDataSetChanged()
         })
+
+        viewModel.totalAmount.observe(this, Observer {
+            it ?: return@Observer
+
+            displayTotalAmount(it)
+        })
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun displayTotalAmount(total: Double) {
+        bOrderTotal.text = "Total ${total.formatCurrency()}"
     }
 
     private fun initCategories() {
@@ -75,6 +89,12 @@ class ShopFragment: BaseFragment() {
         viewModel.filterProductByCategory(category)
     }
 
+    private fun RecyclerView.autoFitColumns(columnWidth: Int) {
+        val displayMetrics = this.context.resources.displayMetrics
+        val noOfColumns = ((displayMetrics.widthPixels / displayMetrics.density) / columnWidth).toInt()
+        this.layoutManager = GridLayoutManager(this.context, noOfColumns)
+    }
+
     private fun initProducts() {
         val products = preferenceManager.get("products", emptyString()) as String
         val productResponse = Gson().fromJson(products, ProductResponse::class.java)
@@ -82,7 +102,7 @@ class ShopFragment: BaseFragment() {
         viewModel.setProducts(productResponse.products)
 
         rvProducts.setHasFixedSize(true)
-        rvProducts.layoutManager = GridLayoutManager(activity, 4)
+        rvProducts.autoFitColumns(300)
         rvProducts.adapter =
             ProductAdapter(
                 context!!, viewModel.products
@@ -106,13 +126,10 @@ class ShopFragment: BaseFragment() {
 
     }
 
-
     private fun productSelected(product: Product) {
         //
         // Process Add ons, Qty, Variants here
         //
-
-        //addOrder(ItemOrder(product, 1))
 
         OrderItemDialog.ItemOrderBuilder()
             .displayProduct(product)

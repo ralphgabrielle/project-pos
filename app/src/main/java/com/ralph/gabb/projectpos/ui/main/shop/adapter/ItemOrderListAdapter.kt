@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ralph.gabb.projectpos.R
 import com.ralph.gabb.projectpos.data.local.ItemOrder
+import com.ralph.gabb.projectpos.extra.formatCurrency
 import kotlinx.android.synthetic.main.row_item_order.view.*
-import java.text.DecimalFormat
 
 
 /*
@@ -19,8 +19,6 @@ import java.text.DecimalFormat
 class ItemOrderListAdapter(
     private var context: Context, private var orderList: ArrayList<ItemOrder>, private var onSelectItemOrder: (ItemOrder) -> Unit
 ) : RecyclerView.Adapter<ItemOrderListAdapter.ItemOrderListViewHolder>() {
-
-    private val decimalFormat = DecimalFormat("Php ###,##0.00")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemOrderListViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.row_item_order, parent, false)
@@ -37,8 +35,8 @@ class ItemOrderListAdapter(
         val itemOrder = orderList[position]
 
         holderItem.displayItemName(itemOrder.product.productName)
-        holderItem.displayItemPrice(decimalFormat.format(itemOrder.variant.price))
-        holderItem.displayQuantityPrice(itemOrder.qty, decimalFormat.format(itemOrder.total))
+        holderItem.displayItemPrice(itemOrder.variant.price.formatCurrency())
+        holderItem.displayQuantityPrice(itemOrder.qty, itemOrder.total.formatCurrency())
 
         holderItem.selectItemOrder {
             onSelectItemOrder(itemOrder)

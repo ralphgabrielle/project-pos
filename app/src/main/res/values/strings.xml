@@ -2,4 +2,9 @@
     <string name="app_name">ProjectPOS</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+    <string name="message_permission_granted">Need permission to be granted.</string>
+
+    <string name="title_error">Error</string>
+    <string name="title_success">Success</string>
 </resources>

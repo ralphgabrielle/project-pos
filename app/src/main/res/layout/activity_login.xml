@@ -60,10 +60,29 @@
         android:elevation="10dp"
         android:text="Login"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bQRCode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
         app:layout_constraintWidth_percent="0.5" />
+
+
+
+    <Button
+        android:id="@+id/bQRCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_big"
+        android:background="@drawable/ripple_rounded_neutral"
+        android:elevation="10dp"
+        android:text="Scan QR Code"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bLogin"
+        app:layout_constraintWidth_percent="0.5" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
