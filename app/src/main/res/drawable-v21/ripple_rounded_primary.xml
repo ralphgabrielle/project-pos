@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:exitFadeDuration="@android:integer/config_shortAnimTime"
+    android:color="@color/colorPrimaryDark" >
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp"/>
+            <solid android:color="@color/colorPrimary" />
+
+            <padding
+                android:bottom="@dimen/margin_normal"
+                android:top="@dimen/margin_normal"
+                android:left="@dimen/margin_normal"
+                android:right="@dimen/margin_normal" />
+        </shape>
+    </item>
+
+</ripple>
