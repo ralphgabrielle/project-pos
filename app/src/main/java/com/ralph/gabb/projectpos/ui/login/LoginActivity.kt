@@ -104,7 +104,6 @@ class LoginActivity: BaseActivity(), PermissionAccessManager.AccessPermission {
         val loginAccount = viewModel.loginAccount(loginBody)
 
         SuspendNetworkCall.makeCall(this@LoginActivity, loginAccount)  {
-
             // will have a more simplified code later
             if (it.status == 200) {
                 if (it.result == 1) {

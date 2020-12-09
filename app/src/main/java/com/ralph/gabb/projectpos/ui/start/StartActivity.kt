@@ -37,8 +37,6 @@ class StartActivity: BaseActivity() {
                 } else {
                     displayLogin()
                 }
-
-//                displayLogin()
             }
         }
     }
